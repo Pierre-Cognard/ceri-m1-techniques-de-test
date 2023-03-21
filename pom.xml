@@ -27,6 +27,11 @@
             <version>3.12.4</version>
             <scope>test2</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.0</version>
+        </dependency>
     </dependencies>
 
     <!-- Cycles de vie -->

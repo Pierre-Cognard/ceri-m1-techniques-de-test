@@ -5,11 +5,11 @@ Place aux tests unitaires ! On voudra une couverture maximale (mais pertinente) 
 Tout d’abord il vous faut créer un nouveau répertoire `src/test/java` et un package `fr.univavignon.pokedex.api` pour vos tests, et mettre à jour votre `POM` afin d’associer le  répertoire créé comme un répertoire contenant des tests unitaires.  
 Voici la liste des test cases attendus :
 
-- `IPokemonMetadataProviderTest`
-- `IPokemonFactoryTest`
-- `IPokedexFactoryTest`
-- `IPokedexTest`
-- `IPokemonTrainerFactoryTest`
+- `fr.univavignon.pokedex.api.IPokemonMetadataProviderTest`
+- `fr.univavignon.pokedex.api.IPokemonFactoryTest`
+- `fr.univavignon.pokedex.api.IPokedexFactoryTest`
+- `fr.univavignon.pokedex.api.IPokedexTest`
+- `fr.univavignon.pokedex.api.IPokemonTrainerFactoryTest`
 
 Il est fortement recommandé de mettre pour chaque classe de test une couche d’abstraction pour récupérer des instances d’objets cible, qui seront dans le cadre des tests de  l’API des mocks crées avec Mockito, et de vraies instances pour les tests d’implémentation.
 

@@ -10,24 +10,24 @@ import fr.univavignon.pokedex.api.IPokemonFactory;
 import fr.univavignon.pokedex.api.Pokemon;
 
 public class RocketPokemonFactory implements IPokemonFactory {
-	
+
 	private static Map<Integer, String> index2name;
 	static {
 		Map<Integer, String> aMap = new HashMap<Integer, String>();
-        aMap.put(-1, "Ash's Pikachu");
-        aMap.put(0, "MISSINGNO");
-        aMap.put(1, "Bulbasaur");
-        //TODO : Gotta map them all !
-        index2name = UnmodifiableMap.unmodifiableMap(aMap);
+		aMap.put(-1, "Ash's Pikachu");
+		aMap.put(0, "MISSINGNO");
+		aMap.put(1, "Bulbasaur");
+		//TODO : Gotta map them all !
+		index2name = UnmodifiableMap.unmodifiableMap(aMap);
 	}
-	
+
 	private static int generateRandomStat() {
 		int total = 0;
 		for(int i=0; i < 1000000; i++)
 		{
 			Random rn = new Random();
-		    int r = rn.nextInt(2);
-		    total = total + r;
+			int r = rn.nextInt(2);
+			total = total + r;
 		}
 		return total / 10000;
 	}
