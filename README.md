@@ -35,3 +35,6 @@ Le rendu des TPs se fait au rythme suivant :
 Pour chaque rendu, le projet dans son intégralité doit être déposé sur la plateforme.
 
 [^1]: Si vous n’êtes vraiment pas à l’aise avec cet outil nous vous conseillons quand même vivement de vous y mettre.
+
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Pierre-Cognard/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Pierre-Cognard/ceri-m1-techniques-de-test/tree/master)
