@@ -1,4 +1,6 @@
 version: 2
+orbs:
+  codecov: codecov/codecov@3.2.4
 jobs:
   build:
     docker:
@@ -31,6 +33,11 @@ jobs:
       - run:
           name: Upload coverage data to Codecov
           command: bash <(curl -s https://codecov.io/bash) -t ${CODECOV_TOKEN}
+      - run:
+          name: Code Coverage
+          command: curl -Os https://uploader.codecov.io/latest/linux/codecov; chmod +x codecov; ./codecov
+
+
 
 workflows:
   version: 2
@@ -40,3 +47,4 @@ workflows:
           filters:
             branches:
               only: master
+
