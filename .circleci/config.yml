@@ -5,9 +5,38 @@ jobs:
       - image: circleci/openjdk:8-jdk
     steps:
       - checkout
+
+      # Restaurer le cache des dépendances
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "pom.xml" }}
+            - v1-dependencies-
+
+      # Télécharger les dépendances
+      - run: mvn -B dependency:go-offline
+
+      # Enregistrer le cache des dépendances
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: v1-dependencies-{{ checksum "pom.xml" }}
+
+      # Exécuter les tests unitaires et générer le rapport de couverture
+      # Exécuter les tests unitaires et générer le rapport de couverture
       - run:
-          name: Run Unit Tests
-          command: mvn test
-    branches:
-      only:
-        - master
+          name: Run Unit Tests and Generate Coverage Report
+          command: mvn test jacoco:report
+
+      # Télécharger et exécuter le script Codecov
+      - run:
+          name: Upload coverage data to Codecov
+          command: bash <(curl -s https://codecov.io/bash) -t ${CODECOV_TOKEN}
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
