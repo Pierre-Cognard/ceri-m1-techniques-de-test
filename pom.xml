@@ -18,14 +18,14 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
-            <scope>test1</scope>
+            <scope>test</scope>
         </dependency>
         <!-- Mockito -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>3.12.4</version>
-            <scope>test2</scope>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -38,17 +38,6 @@
     <build>
         <testSourceDirectory>src/test/java</testSourceDirectory>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
-                <configuration>
-                    <includes>
-                        <include>**/*Test.java</include>
-                        <testSourceDirectory>src/test/java</testSourceDirectory>
-                    </includes>
-                </configuration>
-            </plugin>
             <!-- Compiler le code source -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -65,6 +54,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                        <testSourceDirectory>src/test/java</testSourceDirectory>
+                    </includes>
                     <excludes>
                         <exclude>**/*IntegrationTest.java</exclude>
                     </excludes>
