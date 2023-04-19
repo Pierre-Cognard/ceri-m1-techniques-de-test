@@ -2,32 +2,13 @@ package fr.univavignon.pokedex.api;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
-
 import java.util.Comparator;
 import java.util.List;
-
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import fr.univavignon.pokedex.api.IPokedex;
-import fr.univavignon.pokedex.api.IPokemonFactory;
-import fr.univavignon.pokedex.api.IPokemonMetadataProvider;
-import fr.univavignon.pokedex.api.PokedexException;
-import fr.univavignon.pokedex.api.Pokemon;
-import fr.univavignon.pokedex.api.PokemonMetadata;
 
 public class IPokedexTest {
     @Mock
@@ -48,7 +29,7 @@ public class IPokedexTest {
         when(pokemonFactory.createPokemon(1, 896, 100, 400, 2)).thenReturn(new Pokemon(1, "Ivysaur", 156, 158, 120, 896, 100, 400, 2, 0.67));
 
         pokedex = new IPokedex() {
-            private List<Pokemon> pokemons = new ArrayList<>();
+            private final List<Pokemon> pokemons = new ArrayList<>();
 
             @Override
             public int size() {
