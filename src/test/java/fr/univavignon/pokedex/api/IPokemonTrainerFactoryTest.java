@@ -4,8 +4,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -15,7 +15,7 @@ public class IPokemonTrainerFactoryTest {
     @Mock private IPokemonTrainerFactory pokemonTrainerFactory;
     @Mock private IPokemonMetadataProvider metadataProvider;
     @Mock private IPokemonFactory pokemonFactory;
-    @Before
+    @BeforeEach
     public void init() throws PokedexException {
         MockitoAnnotations.initMocks(this);
 

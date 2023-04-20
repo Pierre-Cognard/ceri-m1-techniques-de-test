@@ -2,15 +2,16 @@ package fr.univavignon.pokedex.api;
 
 import static org.junit.Assert.assertNotNull;
 
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 public class IPokedexFactoryTest {
 
     private IPokedexFactory pokedexFactory;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         pokedexFactory = Mockito.mock(IPokedexFactory.class);
     }

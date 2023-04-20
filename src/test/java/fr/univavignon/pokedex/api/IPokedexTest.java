@@ -1,7 +1,7 @@
 package fr.univavignon.pokedex.api;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import java.util.Comparator;
 import java.util.List;
 import static org.mockito.Mockito.when;
@@ -14,7 +14,7 @@ public class IPokedexTest {
     @Mock private IPokemonMetadataProvider metadataProvider;
     @Mock private IPokemonFactory pokemonFactory;
     private IPokedex pokedex;
-    @Before
+    @BeforeEach
     public void setUp() throws PokedexException {
         MockitoAnnotations.initMocks(this);
 

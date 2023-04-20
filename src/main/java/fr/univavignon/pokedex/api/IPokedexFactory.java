@@ -8,7 +8,7 @@ import java.util.List;
  * 
  * @author fv
  */
-public interface IPokedexFactory extends IPokedex {
+public interface IPokedexFactory extends IPokedex{
 
 	/**
 	 * Creates a new pokedex instance using the given 
