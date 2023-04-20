@@ -11,14 +11,9 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 public class IPokedexTest {
-    @Mock
-    private IPokemonMetadataProvider metadataProvider;
-
-    @Mock
-    private IPokemonFactory pokemonFactory;
-
+    @Mock private IPokemonMetadataProvider metadataProvider;
+    @Mock private IPokemonFactory pokemonFactory;
     private IPokedex pokedex;
-
     @Before
     public void setUp() throws PokedexException {
         MockitoAnnotations.initMocks(this);
