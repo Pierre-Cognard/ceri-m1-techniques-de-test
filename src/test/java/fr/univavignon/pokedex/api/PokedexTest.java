@@ -1,8 +1,11 @@
 package fr.univavignon.pokedex.api;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.Comparator;
 import java.util.List;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -36,14 +39,14 @@ public class PokedexTest {
     public void sizeTest() {
         Assertions.assertEquals(0, pokedex.size());
         Pokemon pokemon = new Pokemon(0, "Bulbasaur", 49, 49, 90, 110, 60, 400, 4, 56.0);
-        when(pokemonFactory.createPokemon(1, 500, 600, 4500, 30)).thenReturn(pokemon);
+        when(pokemonFactory.createPokemon(0, 110, 60, 400, 4)).thenReturn(pokemon);
         pokedex.addPokemon(pokemon);
         Assertions.assertEquals(1, pokedex.size());
     }
     @Test
     public void addAndGetPokemonTest() throws PokedexException {
         Pokemon pokemon = new Pokemon(0, "Bulbasaur", 49, 49, 90, 110, 60, 400, 4, 56.0);
-        when(pokemonFactory.createPokemon(1, 500, 600, 4500, 30)).thenReturn(pokemon);
+        when(pokemonFactory.createPokemon(0, 110, 60, 400, 4)).thenReturn(pokemon);
         int id = pokedex.addPokemon(pokemon);
         Assertions.assertEquals(pokemon, pokedex.getPokemon(id));
     }
@@ -51,8 +54,8 @@ public class PokedexTest {
     public void getPokemonsTest() {
         Pokemon pokemon1 = new Pokemon(0, "Bulbasaur", 49, 49, 90, 110, 60, 400, 4, 56.0);
         Pokemon pokemon2 = new Pokemon(1, "Tortank",79,83,100,78,800,3000,10,98.0);
-        when(pokemonFactory.createPokemon(1, 500, 600, 4500, 30)).thenReturn(pokemon1);
-        when(pokemonFactory.createPokemon(2, 600, 700, 5500, 40)).thenReturn(pokemon2);
+        when(pokemonFactory.createPokemon(0, 110, 60, 400, 4)).thenReturn(pokemon1);
+        when(pokemonFactory.createPokemon(1, 78, 800, 3000, 10)).thenReturn(pokemon2);
         pokedex.addPokemon(pokemon1);
         pokedex.addPokemon(pokemon2);
 
@@ -61,4 +64,30 @@ public class PokedexTest {
         Assertions.assertTrue(pokemons.contains(pokemon1));
         Assertions.assertTrue(pokemons.contains(pokemon2));
     }
+
+    @Test
+    public void getPokemonsWithComparatorTest() {
+        Pokemon pokemon1 = new Pokemon(0, "Bulbasaur", 49, 49, 90, 110, 60, 400, 4, 56.0);
+        Pokemon pokemon2 = new Pokemon(1, "Tortank",79,83,100,78,800,3000,10,98.0);
+        when(pokemonFactory.createPokemon(0, 110, 60, 400, 4)).thenReturn(pokemon1);
+        when(pokemonFactory.createPokemon(1, 78, 800, 3000, 10)).thenReturn(pokemon2);
+        pokedex.addPokemon(pokemon1);
+        pokedex.addPokemon(pokemon2);
+
+        List<Pokemon> pokemons = pokedex.getPokemons(PokemonComparators.CP);
+        Assertions.assertEquals(2, pokemons.size());
+        Assertions.assertEquals(pokemon1, pokemons.get(1));
+        Assertions.assertEquals(pokemon2, pokemons.get(0));
+
+        pokemons = pokedex.getPokemons(PokemonComparators.NAME);
+        Assertions.assertEquals(2, pokemons.size());
+        Assertions.assertEquals(pokemon1, pokemons.get(0));
+        Assertions.assertEquals(pokemon2, pokemons.get(1));
+
+        pokemons = pokedex.getPokemons(PokemonComparators.INDEX);
+        Assertions.assertEquals(2, pokemons.size());
+        Assertions.assertEquals(pokemon1, pokemons.get(0));
+        Assertions.assertEquals(pokemon2, pokemons.get(1));
+    }
+
 }
