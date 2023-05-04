@@ -1,0 +1,14 @@
+TP6
+
+Apèrs l'intégration de  cette implémentation dans le projet, tous les tests de passenet pas.
+
+Il y a plusieurs raisons à ces échecs:
+- Lors de la création d'un pokémon, ses statistiques sont générées aléatoirement si l'index est supérieur à 0, ce qui ne permet pas de tester correctement le code.
+- Si l'index est inférieur à 0, les valeurs d'attaque, de défense et de stamina sont fixées à 1000, ce qui n'est pas cohérent avec les autres Pokémons.
+- Dans l'implémentation de base, la map "index2name" ne contient pas tous les noms de Pokemon. Cela peut entraîner des erreurs si un Pokemon dont le nom n'est pas défini est créé.
+
+
+L'implémentation RocketPokemonFactory fournie par la Team Rocket necessite des modifications et des ajouts de tests pour qu'elle fonctionne correctement.
+
+
+
