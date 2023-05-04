@@ -44,3 +44,7 @@ Groupe ILSEN CLA
 
 [![codecov](https://codecov.io/github/Pierre-Cognard/ceri-m1-techniques-de-test/branch/master/graph/badge.svg?token=MXVW0X6Q4G)](https://codecov.io/github/Pierre-Cognard/ceri-m1-techniques-de-test)
 
+![Checkstyle](https://img.shields.io/badge/Checkstyle-111%20Errors-red.svg)
+
+
+
